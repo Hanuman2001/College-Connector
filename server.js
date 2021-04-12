@@ -5,6 +5,7 @@ connectDB()
 const PORT = process.env.PORT || 5000
 
 app.get('/', (req, res) => res.send('API is running'))
+app.use(express.json({ extended: false }))
 
 //Define routes
 app.use('/api/users', require('./routes/api/users'))
