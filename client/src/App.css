@@ -12,6 +12,9 @@
   margin: 0;
   padding: 0;
 }
+#root {
+  height: 100vh;
+}
 
 body {
   font-family: "Raleway", sans-serif;
@@ -226,7 +229,8 @@ img {
 
 /* Overlay */
 .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-image: url("https://i.pinimg.com/originals/71/f8/d0/71f8d0725c8424ed320898574715a172.jpg");
+  background-size: cover;
   position: absolute;
   top: 0;
   left: 0;
@@ -333,9 +337,9 @@ button {
 /* Landing Page */
 .landing {
   position: relative;
-  background-image: url("https://www.google.com/maps/uv?pb=!1s0x396db68fc823350f%3A0x3c5a782ca021babf!3m1!7e115!4shttps%3A%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipPcJw1JNP42e2pvzGs88ta0fHptJ8aRY4SZbboz%3Dw214-h144-k-no!5scct%20-%20Google%20Search!15sCgIgAQ&imagekey=!1e10!2sAF1QipMVYh1Z5FRb-FOV8jnFK2fk4b5SOraHiYlyxGKE&hl=en&sa=X&ved=2ahUKEwj_iOfjpp7wAhWVZM0KHbR2AwIQoiowGnoECEYQAw#")
+  background-image: url("https://img.freepik.com/free-vector/yellow-background-with-halftone-lines-design_1017-30148.jpg?size=626&ext=jpg")
     no-repeat center center/cover;
-  height: 100vh;
+  height: 50em;
 }
 
 .landing-inner {
@@ -487,6 +491,21 @@ button {
   color: #aaa;
   font-size: 0.8rem;
   margin-bottom: 0.5rem;
+}
+/*Search Bar */
+
+input {
+  width: 30em;
+
+  display: block;
+  margin: auto;
+  margin-bottom: 1.5em;
+  border-radius: 45px;
+  outline: none;
+  padding: 1em;
+}
+.profiles {
+  border: none;
 }
 
 /* Mobile Styles */

@@ -1,10 +1,17 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getProfiles } from "../../actions/profile";
 
 import ProfileItem from "./ProfileItem";
+
 const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
+  const [search, setSearch] = useState("");
+
+  const filteredProfiles = profiles.filter((item) =>
+    item.user.name.toLowerCase().includes(search.toLowerCase())
+  );
+
   useEffect(() => getProfiles(), [getProfiles]);
 
   return (
@@ -15,8 +22,15 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
         developers
       </p>
       <div className="profiles">
+        <input
+          type="search"
+          className="search-bar"
+          placeholder=" Search Profiles"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+
         {profiles.length > 0 ? (
-          profiles.map((profile) => (
+          filteredProfiles.map((profile) => (
             <ProfileItem key={profile._id} profile={profile} />
           ))
         ) : (

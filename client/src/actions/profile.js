@@ -32,36 +32,36 @@ export const getProfile = () => async (dispatch) => {
 
 //Create profile
 
-export const createProfile = (profile, history, edit = false) => async (
-  dispatch
-) => {
-  try {
-    const body = JSON.stringify(profile);
+export const createProfile =
+  (profile, history, edit = false) =>
+  async (dispatch) => {
+    try {
+      const body = JSON.stringify(profile);
 
-    const config = {
-      headers: {
-        "Content-type": "application/json",
-      },
-    };
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+        },
+      };
 
-    const res = await axios.post("/api/profile", body, config);
+      const res = await axios.post("/api/profile", body, config);
 
-    dispatch({
-      type: CREATE_PROFILE,
-      payload: res.data,
-    });
-    dispatch(setAlert("Profile Created", "success"));
+      dispatch({
+        type: CREATE_PROFILE,
+        payload: res.data,
+      });
+      dispatch(setAlert("Profile Created", "success"));
 
-    if (!edit) {
-      history.push("/dashboard");
+      if (!edit) {
+        history.push("/dashboard");
+      }
+    } catch (err) {
+      dispatch({
+        type: PROFILE_ERROR,
+      });
+      console.error(err.message);
     }
-  } catch (err) {
-    dispatch({
-      type: PROFILE_ERROR,
-    });
-    console.error(err.message);
-  }
-};
+  };
 
 //Get all profiles
 export const getProfiles = () => async (dispatch) => {
